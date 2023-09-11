@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ift2 øvingsoppgave</title>
+</head>
+<body>
+    <p id="utskrift"></p> 
+    <script>
+        const myAge = 20
+        let message = ""
+
+        if(myAge >= 18) {
+            message += "Du er myndig, "
+        }
+        else{
+            message += "Du er ikke myndig, "
+        }
+        if(myAge >= 18, myAge <= 62) {
+            message += "du er klar for studie eller arbeidsliv, "
+        }
+        else{
+            message += "du er ikke klar for studie eller arbeidsliv, "
+        }
+
+        if(myAge >= 62) {
+            message += "du er klar for pensjonslivet. "
+        }
+        else{
+            message += "du er ikke klar for pensjonslivet. "
+        }
+
+        document.getElementById("utskrift").innerHTML = message
+    </script>
+</body>
+</html>

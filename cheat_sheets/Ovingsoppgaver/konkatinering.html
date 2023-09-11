@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontkatinering cheat sheet</title>
+</head>
+<body>
+    
+    <p id="mailStandard"></p>
+    <p id="mailTempLit"></p>
+
+    <script>
+        // p1 og p2 finnes ikke, det er kun <p><p>
+
+            
+        const name = "Anders Klevaas"
+        const mail = "anders.klevaas@gmail.com"
+
+   // standar konkatinering med pluggtegn
+   const mailCodeStandard = "<a href='mailto:" + mail + "'>Send epost til " + name + "</a>"
+   document.getElementById("mailStandard").innerHTML = mailCodeStandard
+
+   //  template liberals
+        const mailCodeTempLit = `<a href="mailto:${mail}">Send epost til ${name}</a>`
+        document.getElementById("mailTempLit").innerHTML = mailCodeTempLit
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sko Nettbutikk</title>
+    <style>
+        
+        /* Legg til dine CSS-stiler her */
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            border-radius: 25px;
+            padding: 10px 20px;
+            background-color: #ecf0f1;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #3498db;
+            color: #ecf0f1;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        section {
+            flex: 2;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        aside {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skostiler */
+        .skotype {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background-color: #ecf0f1;
+        }
+
+        .skotype img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .skotype button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 25px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .skotype button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Handlekurvstiler */
+        #handlekurv {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #handlekurv h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        #handlekurvListe {
+            list-style: none;
+            padding: 0;
+        }
+
+        #handlekurvListe li {
+            margin-bottom: 10px;
+        }
+
+        #totalPris {
+            font-weight: bold;
+            color: #2980b9;
+        }
+
+        /* Innloggingstiler */
+        #innlogging {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        #innlogging input {
+            margin-right: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #innlogging button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        #innlogging button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sko Nettbutikk</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Herrer</a></li>
+                <li><a href="#">Damer</a></li>
+                <li><a href="#">Handlekurv</a></li>
+                <li id="innlogging">
+                    <input type="text" placeholder="Brukernavn">
+                    <input type="password" placeholder="Passord">
+                    <button>Logg inn</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Herrer Sko</h2>
+            <div class="skotype">
+                <img src="herrer_sko1.jpg" alt="Herrer Sko 1">
+                <h3>Herrer Sko 1</h3>
+                <p>Dette er en flott sko for herrer.</p>
+                <p>Pris: $79</p>
+                <button onclick="leggTilHandlekurv('Herrer Sko 1', 79)">Legg til i handlekurv</button>
+            </div>
+            <div class="skotype">
+                <img src="herrer_sko2.jpg" alt="Herrer Sko 2">
+                <h3>Herrer Sko 2</h3>
+                <p>Dette er en komfortabel herrer sneaker.</p>
+                <p>Pris: $89</p>
+                <button onclick="leggTilHandlekurv('Herrer Sko 2', 89)">Legg til i handlekurv</button>
+            </div>
+            <!-- Legg til flere herresko her -->
+        </section>
+        <aside>
+            <div id="handlekurv">
+                <h2>Handlekurv</h2>
+                <ul id="handlekurvListe">
+                    <!-- Handlekurvinnhold vises her -->
+                </ul>
+                <p>Totalpris: $<span id="totalPris">0</span></p>
+                <button onclick="gjennomforKjop()">Gjennomfør kjøp</button>
+            </div>
+        </aside>
+    </main>
+    <script>
+        
+        // JavaScript-koden fortsetter her
+        // Skoobjekter for herrer
+        const herrerSko = [
+            { navn: 'Herrer Sko 1', pris: 79, bilde: 'herrer_sko1.jpg', beskrivelse: 'Dette er en flott sko for herrer.' },
+            { navn: 'Herrer Sko 2', pris: 89, bilde: 'herrer_sko2.jpg', beskrivelse: 'Dette er en komfortabel herrer sneaker.' },
+            // Legg til flere herresko
+        ];
+        
+        // Skoobjekter for damer
+        const damerSko = [
+            { navn: 'Damer Sko 1', pris: 99, bilde: 'damer_sko1.jpg', beskrivelse: 'Dette er en elegant damesko.' },
+            { navn: 'Damer Sko 2', pris: 69, bilde: 'damer_sko2.jpg', beskrivelse: 'Dette er en komfortabel damesandal.' },
+            // Legg til flere damesko
+        ];
+        
+        let handlekurv = [];
+        let totalPris = 0;
+        
+        function leggTilHandlekurv(navn, pris) {
+            handlekurv.push({ navn, pris });
+            totalPris += pris;
+            oppdaterHandlekurv();
+        }
+        
+        function oppdaterHandlekurv() {
+            const handlekurvListe = document.getElementById('handlekurvListe');
+            handlekurvListe.innerHTML = '';
+        
+            handlekurv.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.navn} - $${item.pris}`;
+                handlekurvListe.appendChild(li);
+            });
+        
+            const totalPrisElement = document.getElementById('totalPris');
+            totalPrisElement.textContent = totalPris;
+        }
+        
+        function gjennomforKjop() {
+            alert('Takk for kjøpet! Totalprisen er $' + totalPris);
+            handlekurv = [];
+            totalPris = 0;
+            oppdaterHandlekurv();
+        }
+    </script>
+</body>
+</html>

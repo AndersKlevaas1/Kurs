@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci-sekvens</title>
+</head>
+<body>
+    <h1>Fibonacci-sekvens</h1>
+    <p>Skriv inn antall ledd i Fibonacci-sekvensen du vil generere:</p>
+    <input type="number" id="antallLeddBoks">
+    <button onclick="genererFibonacci()">Generer</button>
+    <p id="fibonacciSekvens"></p>
+
+    <script>
+        function genererFibonacci() {
+            var antallLeddBoks = document.getElementById("antallLeddBoks");
+            var fibonacciSekvens = document.getElementById("fibonacciSekvens");
+
+            var n = parseInt(antallLeddBoks.value);
+            if (isNaN(n) || n < 1) {
+                fibonacciSekvens.textContent = "Vennligst skriv inn et gyldig positivt heltall.";
+                return;
+            }
+
+            var fibonacci = [0, 1];
+            for (var i = 2; i < n; i++) {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+            }
+
+            fibonacciSekvens.textContent = "Fibonacci-sekvensen: " + fibonacci.join(", ");
+        }
+    </script>
+</body>
+</html>
